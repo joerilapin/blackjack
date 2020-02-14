@@ -23,9 +23,15 @@ $player = new Blackjack();
 //Initiate class in dealer variable
 $dealer = new Blackjack();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //if button on home page is pushed
-    if (isset($_POST['start'])){
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){  //check if FORM submissions were correctly done.
+
+                                            //Because the purpose of this function is to CHECK whether the request was
+                                            // done via $_POST or $_GET. $_POST are almost always done in some kind
+                                            // of form whether it’d be through Javascript or HTML, you’re still
+                                            // submitting the form.
+    //if BUTTON on home page is pushed
+    if (isset($_POST['start'])){            //checking whether the field or part of the array that gets passed through
+                                            // $_POST contains the submit field or submit name attribute
         //Players first two cards
         $firstHand = $player->firstHand();
         echo '<p>You have ' . $firstHand[0] . ' and a ' . $firstHand[1] . '</p>';
